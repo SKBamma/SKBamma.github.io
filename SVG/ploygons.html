@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .svg {
+            width: 400px;
+            height: 400px;
+            background-color: burlywood;
+        }
+        .polygon{
+            fill:powderblue;
+            stroke: red;
+            stroke-width: 2px;
+            opacity: 0.7;
+        }
+        .polygon1{
+            fill:whitesmoke;
+            stroke:black;
+            stroke-width: 2px;
+            opacity: 0.5;
+        }
+        .polygon2{
+            fill:green;
+            stroke:goldenrod;
+            stroke-width: 2px;
+            opacity: 0.7;
+            fill-rule:evenodd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <svg class="svg">
+    <polygon class="polygon" points ="50,5 75,90 10,90"></polygon>
+    <polygon class="polygon1" points ="50,105 75,20 18,20"></polygon>
+    <polygon class="polygon2" points ="200,20 80,396 380,156 20,156 320,396"></polygon>
+
+
+
+    </svg>
+
+</body>
+
+</html>
