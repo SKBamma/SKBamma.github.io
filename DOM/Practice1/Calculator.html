@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script>
+        function Add(){
+            let input1 = document.getElementById("1");
+            let input2 = document.getElementById("2");
+            let input3 = document.getElementById("3");
+            // console.log(input1, input2, input3);
+            input3.value= parseInt(input1.value) + parseInt(input2.value);
+        }
+        function Substract(){
+            let input1 = document.getElementById("1");
+            let input2 = document.getElementById("2");
+            let input3 = document.getElementById("3");
+            // console.log(input1, input2, input3);
+            input3.value= parseInt(input1.value) - parseInt(input2.value);
+        }
+        function Multiply(){
+            let input1 = document.getElementById("1");
+            let input2 = document.getElementById("2");
+            let input3 = document.getElementById("3");
+            // console.log(input1, input2, input3);
+            input3.value= parseInt(input1.value) * parseInt(input2.value);
+        }
+        function Divide(){
+            let input1 = document.getElementById("1");
+            let input2 = document.getElementById("2");
+            let input3 = document.getElementById("3");
+            // console.log(input1, input2, input3);
+            input3.value= parseInt(input1.value) / parseInt(input2.value);
+        }
+
+    </script>
+        
+</head>
+<body>
+
+    Number1<input type="text" id="1">
+    <br/><br/>
+    Number2<input type="text" id="2">
+    <br/>  <br/>
+    Number3 <textarea name="" id="3" rows="3"></textarea>
+    <br/><br/>
+    <button onclick="Add();">Add</button>
+    <button onclick="Substract();">Substract</button>
+    <button onclick="Multiply();">Multiply</button>
+    <button onclick="Divide();">Divide</button>
+    
+    <button>
+        <label>Calculator:</label>
+        <select>
+            <option onclick="Add();"> Add</option>
+            <option onclick="Substract();">Substract</option>
+            <option onclick="Multiply();">Divide</option>
+            <option onclick="Divide();">Multiply</option>
+        </select>
+    </button>
+    
+</body>
+</html>
