@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Create the first div and add an H1 element to it -->
+    <div>
+        <h1>Preferences</h1>
+    </div>
+
+    <!-- Create the second div with a checkbox -->
+    <div>
+        <label>Show Image</label>
+        <input id="imgD" type="checkbox" onClick="display()" value="showimg">
+    </div>
+
+    <!-- Create the third div for image address input (hidden by default) -->
+    <div id="imgAdd" style="display:none">
+        <label>Image Address</label>
+        <input type="text" id="imgUrl" name="imgAd">
+    </div>
+
+    <!-- Create the fourth div for image shape selection and submit button (hidden by default) -->
+    <div id="imgShape" style="display:none">
+        <label>Image Shape</label>
+        <select id="shapeSelect" name="shape">
+            <option value="square">Square</option>
+            <option value="round">Round</option>
+        </select>
+        <button onclick="showImage()">Submit</button>
+    </div>
+
+    <!-- Image element to display the selected image -->
+    <img id="displayedImage" style="display:none" alt="Selected Image">
+
+    <script>
+        // JavaScript function to show/hide the additional divs based on checkbox state
+        function display() {
+            if (document.getElementById('imgD').checked) {
+                document.getElementById("imgAdd").style.display = "block";
+                document.getElementById("imgShape").style.display = "block";
+            } else {
+                document.getElementById("imgAdd").style.display = "none";
+                document.getElementById("imgShape").style.display = "none";
+            }
+        }
+
+        // JavaScript function to show the selected image
+        function showImage() {
+            const shapeSelect = document.getElementById('shapeSelect');
+            const imgUrl = document.getElementById('imgUrl').value;
+            const displayedImage = document.getElementById('displayedImage');
+
+            if (shapeSelect.value === 'round') {
+                // Display a round image
+                displayedImage.src = imgUrl;
+                displayedImage.style.borderRadius = '50%';
+            } else if (shapeSelect.value === 'square') {
+                // Display a square image
+                displayedImage.src = imgUrl;
+                displayedImage.style.borderRadius = '0%';
+            }
+
+            // Show the image element
+            displayedImage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
