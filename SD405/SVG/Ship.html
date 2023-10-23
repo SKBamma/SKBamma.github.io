@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ship</title>
+    <style>
+        .svg {
+            width: 500px;
+            height: 600px;
+            border: solid green;
+            border-radius: 4px;
+        }
+
+        .polyline1 {
+            stroke: lightcoral;
+            stroke-width: 10px;
+        }
+
+        .polyline2 {
+            stroke: yellow;
+            stroke-width: 5px;
+            fill: yellow;
+        }
+
+        .polyline3 {
+            stroke: greenyellow;
+            stroke-width: 5px;
+            fill: greenyellow;
+        }
+
+        .rect {
+            width: 500px;
+            height: 400px;
+            fill: lightskyblue;
+            x: 0px;
+            y: 410px
+        }
+
+        .polyline4 {
+            stroke: aliceblue;
+            stroke-width: 7px;
+            fill: lightskyblue;
+        }
+        .polyline5 {
+            stroke: aliceblue;
+            stroke-width: 7px;
+            fill: lightskyblue;
+        }
+        .circle{
+            cx:140px;
+            cy:70px;
+            r:8px;
+            fill: red;
+            stroke: wheat;
+            stroke-width: 2px;
+        }
+        .ellipse{
+            cx:140px;
+            cy:80px;
+            rx:20px;
+            ry:5px;
+            fill:black;
+            stroke: wheat;
+            stroke-width: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <svg class="svg">
+        <polyline class="polyline1" points="110,30 110 350"></polyline>
+        <polyline class="polyline2" points="110,40 220 90 110,100"></polyline>
+        <polyline class="polyline3" points="30,325 400,325 320,450 110,450"></polyline>
+        <rect class="rect"></rect>
+        <polyline class="polyline4" points="0,480 190,450 500,460"></polyline>
+        <polyline class="polyline5" points="0,550 100,500 260,520 500,480"></polyline>
+        <ellipse class="ellipse"></ellipse>
+        <circle class="circle"></circle>
+    </svg>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label, #myT, select, button, img{
+            display: none;
+
+        }
+    </style>
+    <script>
+        function checkbox(){
+            let myCheckbox= document.getElementById('myC');
+            // document.getElementById('my').style.display='';
+            document.getElementById('myT').style.display='block';
+            document.getElementById('myL1').style.display='block';
+            document.getElementById('myL2').style.display='block';
+            document.getElementById('droupDown').style.display='block';
+            document.getElementById('submit').style.display='block';
+        }
+        function displayImg(){
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Preferences</h1>
+    Show Image <input type="checkbox" id="myC" onclick="checkbox();" value="showing">
+    <br/>
+    <label id="myL1">Image Address</label><input type="text" id="myT">
+
+    <label id="myL2"> Image Shape</label>
+    <select id="droupDown">
+        <option> Square</option>
+        <option>Round</option >
+    </select>
+    <img src="../FlowerBasket.jpeg" style="width: 50px; height: 60px; object-fit: cover;" id="myImg">
+    <button id="submit" onclick="displayImg();">Submit</button>
+
+
+
+    
+</body>
+</html>

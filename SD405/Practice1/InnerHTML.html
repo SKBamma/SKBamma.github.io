@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ClickMe(){
+            //changeing div content to new content using inner html
+            let divs= document.querySelector("div");
+            divs.innerHTML="United States Of America";
+            
+            //changing content of p to new content/ adding at first or last.
+            let Ps = document.querySelectorAll("p")[0];
+            Ps.innerHTML ="The land of oppourtunity, they said." +" " + Ps.innerHTML;
+
+            // changing the link to new link using set attributes
+            let ancherTag = document.querySelector('a');
+            ancherTag.innerHTML= "Microsoft";
+            ancherTag.setAttribute("href", "https://www.microsoft.com");
+            //changing the image
+            let newImage = document.querySelector('img');
+            newImage.setAttribute("src","../FlowerBasket.jpeg");
+
+
+        }
+    </script>
+</head>
+<body>
+    <div>USA</div>
+    <P>US has altogher 51 states including Washington DC.</P>
+         <a href="http://www.amazon.com">Amazon</a> &nbsp &nbsp
+         <br/>
+         <br/>
+         <img src="../Flower.jpg" style="width: 50px; height: 50px;">
+         <br/>
+         <br/>
+         <button onclick="ClickMe();">Click</button>
+</body>
+</html>

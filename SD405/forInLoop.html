@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript For In Loop</h2>
+<p>The JavaScript for in statement loops through the properties of an Object:</p>
+
+<p id="demo"></p>
+
+<script>
+const person = {fname:"John", lname:"Doe", age:25}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+
+document.getElementById("demo").innerHTML = txt;
+</script>
+
+
+
+
+
+
+
+
+<div style="color: red;">
+
+    Syntax:
+        for (key in object) {
+         // code block to be executed
+        }
+    */
+    const person = { name: "John", age: 30, Sid: 101 };
+    
+    // for (let key in person) {
+    //     console.log(key, person[key]);
+    // }
+    for (let key in person) {
+        console.log(key, person[key]);
+    }
+    //output:
+     name John
+    age 30
+    Sid 101
+</div>
+</body>
+</html>

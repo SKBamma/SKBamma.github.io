@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function createHtmlElement(){
+            // creating the div after body
+            let myDIV =document.createElement('div');
+            myDIV.innerHTML="New Div Created";
+            document.body.append(myDIV);
+            
+            // create the input next to p.
+                //steps
+                  // 1. create(div, p, img, link, input.....)
+                  // 2. give the value or innterHTML.
+                  // 3. Determine where to put.
+            let inputText = document.createElement('input');
+            inputText.value = "Created New Input";
+            document.getElementById('myP').after(inputText);
+
+            //create a new row and add directly after the previous 
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = "<td>4</td> <td>5</td>  <td>6</td>";
+            document.getElementById('myTr').after(newRow);
+            
+        }
+    </script>
+</head>
+<body>
+    <div>My Div</div>
+    <p id="myP">My P</p>
+    <a href="https://www.google.com">Google</a>
+    <br/>
+    <br/>
+    Name<input type="text">
+    <br/>
+    <br/>
+    Flower Basket <img src="../FlowerBasket.jpeg" style="width:80px; height:80px; object-fit: cover;">
+    <br/>
+    <table>
+        <tr id="myTr">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+    <br/>
+    <button onclick="createHtmlElement();">Create Element</button>
+</body>
+</html>

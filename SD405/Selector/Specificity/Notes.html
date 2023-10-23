@@ -1,0 +1,45 @@
+Notes
+Specificity Hierarchy
+<br>
+Every CSS selector has its place in the specificity hierarchy.
+<br>
+There are four categories which define the specificity level of a selector:
+<br>
+1. Inline styles 
+<br>
+2. IDs - Example: #navbar
+<br>
+3. Classes, pseudo-classes, attribute selectors - Example: .test, :hover, [href]
+<br>
+4. Elements and pseudo-elements - Example: h1, ::before
+<br>
+How to Calculate Specificity?
+<br>
+Memorize how to calculate specificity!
+<br>
+Start at 0, add 100 for each ID value, add 10 for each class value (or pseudo-class or attribute
+ selector), add 1 for each element selector or pseudo-element.
+ <br/>
+ Note: Inline style gets a specificity value of 1000, and is always given the highest priority!
+ <br>
+Note 2: There is one exception to this rule: if you use the !important rule, it will even override inline styles!
+<br>
+Selector	Specificity Value	Calculation
+<br/>
+p	1	1
+<br/>
+p.test	11	1 + 10
+<br/>
+p#demo	101	1 + 100
+<br/>
+   
+#demo	100	100
+<br/>
+.test	10	10
+<br/>
+p.test1.test2	21	1 + 10 + 10
+<br/>
+#navbar p#demo	201	100 + 1 + 100
+<br/>
+*	0	0 (the universal selector is ignored)
+<br/>
