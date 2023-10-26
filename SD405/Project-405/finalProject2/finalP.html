@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="finalP.css">
+</head>
+
+<body>
+    <header>
+        <div class="top-label">
+            <div class="label-highscore">
+                Highscore:
+                <span class="highscore">0</span>
+            </div>
+            <div class="between">Between 1 and 20</div>
+        </div>
+        <h1>Guessing Game</h1>
+    </header>
+    <main>
+        <div class="game-display">
+            <div class="number">?</div>
+        </div>
+        <div class="game-navigation">
+            <div class="label-timer">Time: <span class="timer">20</span></div>
+            <ul class="guess-history"></ul>
+            <div class="message">Start guessing...</div>
+            <div class="guess-input">
+                <input type="number" class="guess">
+                <div class="btn check">Check!</div>
+                <button class="again">Play Again</button>
+            </div>
+            <div class="label-score">
+                Score:
+                <span class="score">20</span>
+            </div>
+            <input type="checkbox" class="sound-toggle" id="soundToggle">
+            <label for="soundToggle">Toggle Sound</label>
+        </div>
+    </main>
+    <audio id="correct-sound" src="./SD400/Project-405/finalProject2/bg-music/correct.mp3"></audio>
+    <audio id="incorrect-sound" src="./bg-music/wrong-buzzer-6268.mp3"></audio>
+    <script src="finalP.JS"></script>
+</body>
+
+</html>
