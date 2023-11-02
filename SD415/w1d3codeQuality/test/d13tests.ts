@@ -4,7 +4,10 @@ import { isVowel } from "../src/vowel"
 import { computeSalesCommission } from "../src/sales.js"
 import { compoundInterest } from "../src/saving.js"
 import { calcDownpayment } from "../src/calDownPayment.js"
-// import{ calcDistance } from " ../src/distanceCal.js"
+import { calcDistance } from "../src/distanceCal.js"
+import { convertFahrenheit } from "../src/convertF2C.js"
+import { sumDigits } from "../src/sumOfDigits.js"
+import { multDigit } from "../src/MultiplyOfDigits.js"
 
 
 //Testing vowel function
@@ -93,3 +96,73 @@ describe("test of calcDownpayment", function () {
 });
 
 //testing the distance between two points
+describe("test of distanceCal", function () {
+    it("distance between 0, 0, 5, 5", function () {
+        const exact = calcDistance(0, 0, 5, 5);
+        assert.strictEqual(+exact.toFixed(2), 7.07);
+    });
+    it("distance between 3, 4, 10, 15", function () {
+        const exact = calcDistance(3, 4, 10, 15);
+        assert.strictEqual(+exact.toFixed(2), 13.04);
+    });
+    it("distance between 4, 1, 18, 12", function () {
+        const exact = calcDistance(4, 1, 18, 12);
+        assert.strictEqual(+exact.toFixed(2), 17.80);
+    });
+});
+
+//testing conversion of f to c
+describe("test of converting f to c", function () {
+    it("converting 32f to c ", function () {
+        const exact = convertFahrenheit(32);
+        assert.strictEqual(+exact.toFixed(2), 0);
+    });
+    it("converting 0f to c ", function () {
+        const exact = convertFahrenheit(0);
+        assert.strictEqual(+exact.toFixed(2), -17.78);
+    });
+    it("converting 212f to c", function () {
+        const exact = convertFahrenheit(212);
+        assert.strictEqual(+exact.toFixed(2), 100);
+    });
+    it("converting 100f to c", function () {
+        const exact = convertFahrenheit(100);
+        assert.strictEqual(+exact.toFixed(2), 37.78);
+    });
+});
+
+// Test case for sum of digits
+describe("test of sum of input integers", function () {
+    it("sum of 1234", function () {
+        const exact = sumDigits("1234");
+        assert.strictEqual(+exact.toFixed(2), 10);
+    });
+    it("sum of 8", function () {
+        const exact = sumDigits("8");
+        assert.strictEqual(+exact.toFixed(2), 8);
+    });
+    it("sum of 102", function () {
+        const exact = sumDigits("102");
+        assert.strictEqual(+exact.toFixed(2), 3);
+    });
+});
+
+// Test case for multiplication of  input digits
+describe("test of product of input digits", function () {
+    it("product of input 1234", function () {
+        const exact = multDigit("1234");
+        assert.strictEqual(+exact.toFixed(2), 24);
+    });
+    it("product of input 102", function () {
+        const exact = multDigit("102");
+        assert.strictEqual(+exact.toFixed(2), 0);
+    });
+    it("product of input 8", function () {
+        const exact = multDigit("8");
+        assert.strictEqual(+exact.toFixed(2), 8);
+    });
+    it("product of input 1259", function () {
+        const exact = multDigit("1259");
+        assert.strictEqual(+exact.toFixed(2), 90);
+    });
+});
