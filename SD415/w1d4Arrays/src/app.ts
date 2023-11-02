@@ -23,3 +23,11 @@ console.log('the average score1', finAverage(score));
 // new array
 const score2: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log('the average of score2 ', finAverage(score2));
+
+
+// generating  10 random and storein array called scores 
+const scores: number[] = [];
+for (let i= 0; i < 10; i++){
+    scores[i] = Math.ceil(Math.random()* 100);
+}
+console.log(scores);
