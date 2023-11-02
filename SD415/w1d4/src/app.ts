@@ -1,6 +1,6 @@
 
 
-console.log("in app.ts", "sum of [1,2,3] is: ", sum([1,2,3]));
+console.log("in app.ts", "sum of [1,2,3] is: ", sum([1, 2, 3]));
 /**
  * 
  * @param {number} aa is a number
@@ -8,17 +8,32 @@ console.log("in app.ts", "sum of [1,2,3] is: ", sum([1,2,3]));
  * @param {number} c is a number
  * @returns {number} largest of a, b, c
  */
-export function maxOfThree(aa: number, b: number, c: number): number{ 
-    return 0;  //IMPLEMENT THIS -- DO NOT USE MATH.MAX
+export function maxOfThree(aa: number, b: number, c: number): number {
+    if (aa >= b && aa >= c) {
+        return aa;
+    } else if (b >= aa && b >= c) {
+        return b;
+    } else {
+        return c;
+    }
 }
+
+// Test the function
+const result = maxOfThree(5, 10, 3); // Replace these values with the numbers you want to compare
+console.log('The maximum value is:', result);
+
+
+
+    // return 0;  //IMPLEMENT THIS -- DO NOT USE MATH.MAX
+
 
 /**
  * 
  * @param {Array} arr of numbers
  * @returns {number} sum of arr numbers
  */
-export function sum(arr: number[]): number{
-//IMPLEMENT THIS 
+export function sum(arr: number[]): number {
+    //IMPLEMENT THIS 
     return 0;
 }
 
@@ -28,8 +43,8 @@ export function sum(arr: number[]): number{
  * @param {Array} arr of numbers
  * @returns {number} sum of arr numbers
  */
-export function multiply(arr: number[]): number{
-//IMPLEMENT THIS 
+export function multiply(arr: number[]): number {
+    //IMPLEMENT THIS 
 
     return 0;
 
@@ -40,8 +55,8 @@ export function multiply(arr: number[]): number{
  * @param {*} arr of words 
  * @returns {number} length of longest word
  */
-export function findLongestWord(arr: string[]): number{
-//IMPLEMENT THIS 
+export function findLongestWord(arr: string[]): number {
+    //IMPLEMENT THIS 
 
     return 0;
 }
@@ -59,8 +74,8 @@ describe("generate array", function () {
  * @param {*} cols num cols
  * @returns {Array} 2d array with entries i + j
  */
-export function generateArray(rows: number, cols: number): number[][]{
-//IMPLEMENT THIS 
+export function generateArray(rows: number, cols: number): number[][] {
+    //IMPLEMENT THIS 
 
-return [[0]];
+    return [[0]];
 }
