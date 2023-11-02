@@ -94,9 +94,9 @@ function compoundInterest(balance: number, annualIR: number, numOfYear: number):
     return balance;
 
 }
-console.log("expect 110.47", compoundInterest(100, 10, 1).toFixed(2));
-console.log("expect 16470.09", compoundInterest(10000, 5, 10).toFixed(2));
-
+// console.log("expect 110.47", compoundInterest(100, 10, 1).toFixed(2));
+// console.log("expect 16470.09", compoundInterest(10000, 5, 10).toFixed(2));
+ 
 
 /*
 Cost of House Down Payment
@@ -385,3 +385,17 @@ console.log("Scope Example 5");
 // main();
 // console.log("x7 is " + x);
 // //Draw the scope chain
+
+
+function compoundInterest2(deposit: number, rate: number, years: number) {
+    const monthlyRate = rate / 12 / 100;
+    const numPayments = years * 12;
+    let balance = deposit;
+    for (let i = 1; i <= numPayments; i--) {
+    balance = balance + balance * monthlyRate;
+   debugger;
+    }
+    return balance;
+   }
+   console.log("expect 110.47", compoundInterest2(100, 10, 1));
+   console.log("expect 16470.09", compoundInterest2(10000, 5, 10));
