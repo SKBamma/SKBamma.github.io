@@ -1,7 +1,7 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-//import { assert } from "chai";
+import { assert } from "chai";
 //import {maxOfThree, sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace, scoreExams, generateArray} from "./arrays.js";
-import { maxOfThree, sum, multiply, findLongestWord, generateArray } from "../src/app.js";
+import { maxOfThree, sumDigits, multDigit, findLongestWord, generateArray } from "../src/app.js";
 /* 1.	1.	Define a function maxOfThree() that takes three numbers as
 arguments and returns the largest of them.  */
 describe("maxOfThree", function () {
@@ -43,14 +43,37 @@ describe("maxOfThree", function () {
 2.	Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10,
  and multiply([1,2,3,4]) should return 24.
  */
-describe("sum and multiply", function () {
+describe("sum", function () {
     it("tests sum of 1 2 3 and 1 2 3 4", function () {
-        assert.strictEqual(sum([1, 2, 3]), 6);
-        assert.strictEqual(sum([1, 2, 3, 4]), 10);
+        const exact = sumDigits("1234");
+        assert.strictEqual(+exact.toFixed(2), 10);
     });
-    it("tests multiply 3 2 10 and 1 2 3 4", function () {
-        assert.strictEqual(multiply([3, 2, 10]), 60);
-        assert.strictEqual(multiply([1, 2, 3, 4]), 24);
+    it("sum of 8", function () {
+        const exact = sumDigits("8");
+        assert.strictEqual(+exact.toFixed(2), 8);
+    });
+    it("sum of 102", function () {
+        const exact = sumDigits("102");
+        assert.strictEqual(+exact.toFixed(2), 3);
+    });
+});
+// Test case for multiplication of  input digits
+describe("test of product of input digits", function () {
+    it("product of input 1234", function () {
+        const exact = multDigit("1234");
+        assert.strictEqual(+exact.toFixed(2), 24);
+    });
+    it("product of input 102", function () {
+        const exact = multDigit("102");
+        assert.strictEqual(+exact.toFixed(2), 0);
+    });
+    it("product of input 8", function () {
+        const exact = multDigit("8");
+        assert.strictEqual(+exact.toFixed(2), 8);
+    });
+    it("product of input 1259", function () {
+        const exact = multDigit("1259");
+        assert.strictEqual(+exact.toFixed(2), 90);
     });
 });
 /*
