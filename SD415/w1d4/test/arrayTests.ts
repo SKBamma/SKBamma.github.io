@@ -2,8 +2,8 @@
 import { assert } from "chai"
 
 //import {maxOfThree, sum, multiply, findLongestWord, reverseArray, reverseArrayInPlace, scoreExams, generateArray} from "./arrays.js";
-import {maxOfThree, sumDigits, multDigit ,findLongestWord, generateArray} from "../src/app.js";
-     
+import { maxOfThree, sumDigits, multDigit, findLongestWord, generateArray, div5, calcDifferential } from "../src/app.js";
+
 /* 1.	1.	Define a function maxOfThree() that takes three numbers as 
 arguments and returns the largest of them.  */
 describe("maxOfThree", function () {
@@ -61,7 +61,7 @@ describe("sum", function () {
     });
 });
 
-   
+
 // Test case for multiplication of  input digits
 describe("test of product of input digits", function () {
     it("product of input 1234", function () {
@@ -157,16 +157,48 @@ describe("findLongestWord", function () {
 
 /* 6. Write a function that takes two integers as inputs and returns a 2-dimensional array containing sequential numbers across each row as follows: */
 describe("generate array", function () {
-    const expected33 = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]];
-    const expected23 = [ [1, 2, 3], [4, 5, 6]];
-    const expected21 = [ [1], [2]];
+    const expected33 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    const expected23 = [[1, 2, 3], [4, 5, 6]];
+    const expected21 = [[1], [2]];
     it("expected33", function () {
-        assert.deepEqual(generateArray(3,3), expected33);
+        assert.deepEqual(generateArray(3, 3), expected33);
     });
     it("expected23", function () {
-        assert.deepEqual(generateArray(2,3), expected23);
+        assert.deepEqual(generateArray(2, 3), expected23);
     });
     it("expected21", function () {
         assert.deepEqual(generateArray(2, 1), expected21);
+    });
+});
+
+//testing div5
+describe("divisble by 5", function () {
+    it("tests of divisible of 5 in array [5,6,7,8,9]", function () {
+        const exact = div5([5, 6, 7, 8, 9]);
+        assert.deepStrictEqual(exact, [5]);
+    });
+    it("tests of divisible of 5 in array [15,-25,17,800,-9]", function () {
+        const exact = div5([15, -25, 17, 800, -9]);
+        assert.deepStrictEqual(exact, [15, -25, 800]);
+    });
+    it("tests of divisible of 5 in array [5,16,75,85,19]", function () {
+        const exact = div5([5, 16, 75, 85, 19]);
+        assert.deepStrictEqual(exact, [5, 75, 85]);
+    });
+});
+
+//Test cases of calDifferential function
+describe("Difference of high and low temp", function () {
+    it("test of case 1 ([80, 78, 82], [50, 48, 52])", function () {
+        const exact = calcDifferential([80, 78, 82], [50, 48, 52]);
+        assert.strictEqual(+exact, 90);
+    });
+    it("test of case 2 ([10, 20, 30, 40], [10, 20, 20, 20])", function () {
+        const exact = calcDifferential([10, 20, 30, 40], [10, 20, 20, 20]);
+        assert.strictEqual(+exact, 32);
+    });
+    it("test of case 3 ([10, 20, 60, 40], [10, 20, 59, 40])", function () {
+        const exact = calcDifferential([10, 20, 60, 40], [10, 20, 59, 40]);
+        assert.strictEqual(+exact, 4);
     });
 });
