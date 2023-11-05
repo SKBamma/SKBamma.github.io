@@ -30,7 +30,7 @@ export function sumDigits(integers: string): number {
 
 // function of product of digits
 export function multDigit(nums: string): number {
-    let multiply: number = 1;// should be 0
+    let multiply: number = 1;// should not be 0
     for (let i = 0; i < nums.length; i++) {
         multiply *= parseInt(nums.charAt(i));
     }
@@ -255,9 +255,86 @@ export function calcDifferential(arr1: number[], arr2: number[]): number {
         } else if ((arr1[i] - arr2[i] === 0)) {
             difference += 1;
         }
-    } 
+    }
     return difference;
+
 }
 //testing
-console.log(" The excepted output would be 90 ",calcDifferential([80, 78, 82], [50, 48, 52]));
-console.log(" The excepted output would be 32 ",calcDifferential([10, 20, 30, 40], [10, 20, 20, 20]));
+console.log(" The excepted output would be 90 ", calcDifferential([80, 78, 82], [50, 48, 52]));
+console.log(" The excepted output would be 32 ", calcDifferential([10, 20, 30, 40], [10, 20, 20, 20]));
+
+/*
+Write a function, matrixMatch that will find all the matches in a pair of matrices. 
+It will take two 2-d arrays as arguments and return a 2-d array that has a 1 for each 
+entry that matches and 0 if not. You may assume that the arrays will always be the same dimensions, 
+but could be any number of rows and columns.
+const testArr1 = [ [1,2,3], [5,2,3], [9,2,3] ]
+const testArr2 = [ [1, 2, 10], [3, 2, 5], [9, 6, 7]]
+matrixMatch(testArr1, testArr2) → [ [1, 1, 0] , [0, 1, 0], [1, 0, 0] ]
+*/
+function matrixMatch(arr1: number[][], arr2: number[][]): number[][] {
+    let result: number[][] = [];
+    for (let i = 0; i < arr1.length; i++) {
+        let temp: number[] = [];
+        for (let j = 0; j < arr1[0].length; j++) {
+            if (arr1[i][j] == arr2[i][j]) {
+                temp.push(1);
+            } else {
+                temp.push(0);
+            }
+        }
+        result.push(temp);
+    }
+    return result;
+}
+//displaying result
+console.log(matrixMatch([[1, 2, 3], [5, 2, 3], [9, 2, 3]], [[1, 2, 10], [3, 2, 5], [9, 6, 7]]));
+
+/*
+Write a function named isPrime that takes one argument and returns true if the argument is prime,
+ else returns false. 
+ Write another function named primeFactors that will use isPrime and return an 
+ array of all the prime factors of a number—not including 1 or the number itself. If the number is 
+ less than 2 return 0. (Recall that a “factor” is any number that evenly divides a number. )
+*/
+
+function isPrime(numb: number): boolean {
+    if (numb <= 1) {
+        return false;
+    }
+    for (let i = 2; i < numb; i++) {
+        if (numb % 2 === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log("Expected true",isPrime(5));
+console.log("Expected false",isPrime(8));
+
+function primeFactors(numb :number):number[] | number{
+    if(numb < 2){
+        return 0;
+    }
+    const factors :number[] = [];
+    for(let i = 2; i<numb; i++){
+        if(numb % i === 0 && isPrime(i)){
+            factors.push(i);
+        }
+    }
+    return factors;
+}
+
+//displaying the output
+console.log("expected 2 3 17 ", primeFactors(6936));
+console.log("expected 2 5 ", primeFactors(10));
+console.log("expected 0 ", primeFactors(1)); 
+
+/*Write a function, computeCharges, that will accept an array containing arrays of charges for customers. 
+Your function should return an array that contains an array for each customer. The customer arrays should 
+contain the minimum, maximum, and average charge for that customer.
+E.g.,
+const charges = [[1, 2, 3, 4, 5], 
+                 [10, 20, 30, 60], [300, 200, 100]]
+console.log(computeCharges(charges)) will output [[1, 5, 3], [10, 60, 30], [100, 300, 200]]
+*/
