@@ -196,12 +196,4 @@ function computeStudentScore1(stu: Student, quizKey: number[]): number[] {
 console.log("expected [1, 2, 4]", computeStudentScore1(student1, [3, 1, 2, 4]));
 console.log("expected [1, 2,]", computeStudentScore1(student2, [3, 1, 2, 4]));
 console.log("expected [3, 1, 2, 4]", computeStudentScore1(student3, [3, 1, 2, 4]));
-
-/*
-Complete the function, gradeQuizLabeled, that is like gradeQuiz except that it returns objects for each student with
-properties of studentId and score assert.deepEqual(gradeQuizLabeled(studentQuizzes, [3, 1, 2, 4]), [
-{ id: 101, score: 3 },
-{ id: 102, score: 2 },
-{ id: 103, score: 3 }]);
-
-*/
+// console.log("expected [3, 1, 2, 4]", computeStudentScore1(student3, [3, 1, 2, 4]));
