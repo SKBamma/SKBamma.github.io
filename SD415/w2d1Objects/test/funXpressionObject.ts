@@ -55,7 +55,7 @@ describe("myMap", function () {
 
 /* 4.	Demonstrate your myMap function with an anonymous function that triples the input value.  Write this as an anonymous function expression.  
 Then write it using an arrow expression. */
-describe("myMap", function () {
+describe("myMap Arrow Expression", function () {
     const testArray = [-10, 0, 10, 20];
     it("tests myMap on triples anonymous function", function () {
         assert.deepStrictEqual(myMap(testArray, function (num: number): number { return 3 * num }), [-30, 0, 30, 60]);
