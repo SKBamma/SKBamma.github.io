@@ -166,3 +166,6 @@ describe("test of product of input digits", function () {
         assert.strictEqual(+exact.toFixed(2), 90);
     });
 });
+
+
+// testing
