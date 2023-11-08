@@ -121,7 +121,7 @@ of correct answers, e.g., [3,1,2,4] and returns an array that has scores for eac
 assert.deepEqual(gradeQuiz(quizAnswers, [3, 1, 2, 4]), [3, 2, 3]);
 */
 
-describe("finding the correct student scores", function () {
+describe("Returning correct student scores", function () {
     it("it test the correct given students score array [1, 1, 2, 4]", function () {
         const student1 = {
             studentId: 101,
