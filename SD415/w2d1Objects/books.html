@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Books</title>
+</head>
+<body>
+    <button id="titlesButton">Titles: list all titles, sorted alphabetically</button>
+    <button id="authorsButton">Authors: list all authors, sorted</button>
+    <button id="libraryIDButton">LibraryID: sorted</button>
+    <textarea id="displayArea" rows="10" cols="40"></textarea>
+
+    <script src="book.js"></script>
+    <script>
+        document.getElementById('titlesButton').addEventListener('click', function() {
+            const displayArea = document.getElementById('displayArea');
+            displayArea.value = findTitles().join('\n');
+        });
+
+        document.getElementById('authorsButton').addEventListener('click', function() {
+            const displayArea = document.getElementById('displayArea');
+            displayArea.value = findAuthors().join('\n');
+        });
+
+        document.getElementById('libraryIDButton').addEventListener('click', function() {
+            const displayArea = document.getElementById('displayArea');
+            displayArea.value = findIDs().join('\n');
+        });
+    </script>
+</body>
+</html>
