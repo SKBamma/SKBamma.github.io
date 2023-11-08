@@ -64,3 +64,5 @@ describe("times100", function () {
             assert.deepStrictEqual(myMap(testArray, (num:number): number => 3*num), [-30, 0, 30, 60]);
         });
     });
+
+    //testing
