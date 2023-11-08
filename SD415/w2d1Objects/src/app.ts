@@ -91,7 +91,7 @@ const somePerson: Person = {
     age: 25
 };
 function greet(person: Person) {
-    return "Hello " + person.name + " your age is " + person.age;
+    return "Hello " + somePerson.name + " your age is " + somePerson.age;
 }
 console.log(greet(somePerson));
 
@@ -157,7 +157,7 @@ const student3 = {
 };
 const quizArray = [student1, student2, student3];
 
-/* the src/quiz.ts file, complete the function, quizAnswers that computes and returns the score for a 
+/*  complete the function, quizAnswers that computes and returns the score for a 
 single student. assert.deepEqual(gradeStudent(student1.quizAnswers, [3, 1, 2, 4]), 3);*/
 export function computeStudentScore(stu: Student, quizKey: number[]): number {
     // get the student answer
@@ -236,3 +236,4 @@ export function gradeQuizLabeled(quizArr:Student[], quizKey: number[]): {id: num
 }
 //console.log
 console.log("Expect [ { id: 101, score: 3 }, { id: 102, score: 2 }, { id: 103, score: 3 } ]: ", gradeQuizLabeled(quizArray, [3, 1, 2, 4]));
+ 

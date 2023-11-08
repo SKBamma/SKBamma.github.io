@@ -1,5 +1,5 @@
-/* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+//* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
+// import { assert } from "chai";
 //import {double, times100, myMap} from "../src/fnExps.js";
 import { double, times100, myMap, computeStudentScore, computeStudentScore1, gradeQuiz, gradeQuizLabeled } from "../src/app.js";
 /* 1.	1.	Write a function, double, that takes a number and returns 2 times the number..  */
