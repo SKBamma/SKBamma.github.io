@@ -9,3 +9,4 @@ console.log(foo);
 console.log(foo.sum);
 console.log(foo.sum([1,2,3] ));
 //test .........
+
