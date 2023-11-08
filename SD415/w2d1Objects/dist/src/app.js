@@ -85,9 +85,10 @@ const student3 = {
     studentId: 103,
     quizAnswer: [3, 1, 2, 4]
 };
+const quizArray = [student1, student2, student3];
 /* the src/quiz.ts file, complete the function, quizAnswers that computes and returns the score for a
 single student. assert.deepEqual(gradeStudent(student1.quizAnswers, [3, 1, 2, 4]), 3);*/
-function computeStudentScore(stu, quizKey) {
+export function computeStudentScore(stu, quizKey) {
     // get the student answer
     const answer = stu.quizAnswer;
     //loop through the parallel arrays and count the matches and return that
@@ -105,8 +106,8 @@ console.log("expect 2", computeStudentScore(student2, [3, 1, 2, 4]));
 console.log("expect 4", computeStudentScore(student3, [3, 1, 2, 4]));
 /* 2.2 Complete the function, gradeQuiz, that takes the quiz array and an array
 of correct answers, e.g., [3,1,2,4] and returns an array that has scores for each student.
-assert.deepEqual(gradeQuiz(quizAnswers, [3, 1, 2, 4]), [3, 2, 3]);*/
-function computeStudentScore1(stu, quizKey) {
+assert.deepEqual(gradeQuiz(quizAnswers, [3, 1, 2, 4]), [3, 2, 4]);*/
+export function computeStudentScore1(stu, quizKey) {
     // get the student answer
     const answer = stu.quizAnswer;
     //loop through the parallel arrays and count the matches and return that
@@ -123,3 +124,19 @@ console.log("expected [1, 2, 4]", computeStudentScore1(student1, [3, 1, 2, 4]));
 console.log("expected [1, 2,]", computeStudentScore1(student2, [3, 1, 2, 4]));
 console.log("expected [3, 1, 2, 4]", computeStudentScore1(student3, [3, 1, 2, 4]));
 // console.log("expected [3, 1, 2, 4]", computeStudentScore1(student3, [3, 1, 2, 4]));
+/*
+ write a function, gradeQuiz, that takes the quiz array and an array of correct answers, e.g., [3,1,2,4] and returns an array that has scores for each student.  Their score is the number of correct answers.
+ expect   [ 3, 2, 3 ]
+ use a helper function to compute the score for a given student
+*/
+export function gradeQuiz(quizArr, quizKey) {
+    /* loop through the students and call the helper to get their score, and push into result */
+    const quizScores = [];
+    for (const student of quizArr) {
+        quizScores.push(computeStudentScore(student, quizKey));
+        //const stuScore = computeStudentScore(student, quizKey);
+        // quizScores.push(stuScore);
+    }
+    return quizScores;
+}
+console.log("Expect [3, 2, 4] : ", gradeQuiz(quizArray, [3, 1, 2, 4]));
