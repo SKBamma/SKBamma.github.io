@@ -218,3 +218,21 @@ export function gradeQuiz(quizArr: Student[], quizKey: number[]) {
 
 }
 console.log("Expect [3, 2, 4] : ", gradeQuiz(quizArray, [3, 1, 2, 4]));
+/*
+Complete the function, gradeQuizLabeled, that is like gradeQuiz except that it returns objects for each student with properties of studentId and score
+assert.deepEqual(gradeQuizLabeled(studentQuizzes, [3, 1, 2, 4]), [
+{ id: 101, score: 3 },
+{ id: 102, score: 2 },
+{ id: 103, score: 3 }]);
+*/
+
+export function gradeQuizLabeled(quizArr:Student[], quizKey: number[]): {id: number, score:number}[]{
+    const labeledScores :{ id:number, score: number}[] = [];
+    for(const student of quizArr){
+        const score = computeStudentScore(student, quizKey);
+        labeledScores.push({ id:student.studentId, score });
+    }
+    return labeledScores;
+}
+//console.log
+console.log("Expect [ { id: 101, score: 3 }, { id: 102, score: 2 }, { id: 103, score: 3 } ]: ", gradeQuizLabeled(quizArray, [3, 1, 2, 4]));

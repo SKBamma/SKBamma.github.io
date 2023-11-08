@@ -2,7 +2,7 @@
 import { assert } from "chai"
 
 //import {double, times100, myMap} from "../src/fnExps.js";
-import { double, times100, myMap, computeStudentScore, computeStudentScore1, gradeQuiz } from "../src/app.js";
+import { double, times100, myMap, computeStudentScore, computeStudentScore1, gradeQuiz, gradeQuizLabeled } from "../src/app.js";
 
 /* 1.	1.	Write a function, double, that takes a number and returns 2 times the number..  */
 describe("double", function () {
@@ -148,5 +148,35 @@ describe("Returning correct student scores", function () {
         const studentScores = gradeQuiz([student3], [3, 1, 2, 4]);
 
         assert.deepEqual(studentScores, [4]);
+    });
+});
+
+//testing gradeQuizLabeled
+describe('gradeQuizLabeled', function () {
+    const student1 = {
+        studentId: 101,
+        quizAnswer: [1, 1, 2, 4],
+    };
+
+    const student2 = {
+        studentId: 102,
+        quizAnswer: [2, 1, 2, 2],
+    };
+
+    const student3 = {
+        studentId: 103,
+        quizAnswer: [3, 1, 2, 4],
+    };
+
+    const quizArray = [student1, student2, student3];
+
+    it('should return labeled scores for each student', function () {
+        const labeledScores = gradeQuizLabeled(quizArray, [3, 1, 2, 4]);
+
+        assert.deepStrictEqual(labeledScores, [
+            { id: 101, score: 3 },
+            { id: 102, score: 2 },
+            { id: 103, score: 4 }
+        ]);
     });
 });
