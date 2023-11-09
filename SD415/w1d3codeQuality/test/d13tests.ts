@@ -1,6 +1,6 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
 import { assert } from "chai"
-import { isVowel } from "../src/vowel"
+import { isVowel } from "../src/vowel.js"
 import { computeSalesCommission } from "../src/sales.js"
 import { compoundInterest } from "../src/saving.js"
 import { calcDownpayment } from "../src/calDownPayment.js"
