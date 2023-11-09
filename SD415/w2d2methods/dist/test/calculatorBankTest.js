@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-import { assert } from "chai";
+// import { assert } from "chai";
 import { setValues, sum, mul } from "../src/app.js"; //import objects used in the Mocha tests
 describe("test calculator with values 2, 3", function () {
     let operand1 = 0;
