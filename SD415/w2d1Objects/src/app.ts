@@ -205,7 +205,7 @@ console.log("expected [3, 1, 2, 4]", computeStudentScore1(student3, [3, 1, 2, 4]
  expect   [ 3, 2, 3 ]
  use a helper function to compute the score for a given student
 */
-export function gradeQuiz(quizArr: Student[], quizKey: number[]) {
+export function gradeQuiz(quizArr: Student[], quizKey: number[]): number[] {
     /* loop through the students and call the helper to get their score, and push into result */
     const quizScores: number[] = [];
     for (const student of quizArr) {

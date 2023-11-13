@@ -101,28 +101,28 @@ export function getMaxSubSum(arr: number[]): number {
     let maxSum = 0; // if we take no elements, zero will be returned
 
     for (let i = 0; i < arr.length; i++) {
-      let sumFixedStart = 0;
-      for (let j = i; j < arr.length; j++) {
-        sumFixedStart += arr[j];
-        maxSum = Math.max(maxSum, sumFixedStart);
-      }
+        let sumFixedStart = 0;
+        for (let j = i; j < arr.length; j++) {
+            sumFixedStart += arr[j];
+            maxSum = Math.max(maxSum, sumFixedStart);
+        }
     }
-  
+
     return maxSum;
-  }
+}
 
 
 
 
 export function camelize(str: string): string {
     return str
-    .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
-    .map(
-      // capitalizes first letters of all array items except the first one
-      // converts ['my', 'long', 'word'] into ['my', 'Long', 'Word']
-      (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
-    )
-    .join(''); // joins ['my', 'Long', 'Word'] into 'myLongWord'
+        .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
+        .map(
+            // capitalizes first letters of all array items except the first one
+            // converts ['my', 'long', 'word'] into ['my', 'Long', 'Word']
+            (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+        )
+        .join(''); // joins ['my', 'Long', 'Word'] into 'myLongWord'
 
 
 }
@@ -133,3 +133,5 @@ export function extractCurrencyValue(str: string): number {
     return +str.slice(1)
 }
 console.log(extractCurrencyValue("$120"));
+
+
