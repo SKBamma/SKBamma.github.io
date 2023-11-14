@@ -166,6 +166,79 @@ export function includesEvenAge(arr: number[]): boolean {
   }
   return false;
 }
+//sorting
+/*
+Write the function camelize(str) that changes dash-separated words like “my-short-string” into 
+camel-cased “myShortString”.That is: removes all dashes, each word after dash becomes uppercased
+*/
+export function camelize(str: string): string {
+  return str.split('-').map((word, index) => index == 0 ?
+    word : word[0].toUpperCase() + word.slice(1)).join('')
+}
+console.log( " expect:backgroundColor",camelize("background-color"));
+console.log( "Expect: liststyleImage",camelize('list-style-image'));
 
-//exam practice
+// console.log(camelize("-webkit-transition") == 'WebkitTransition');
 
+//sorting in decreasing order
+//We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+// Create a function copySorted(arr) that returns such a copy.
+let arR = ["HTML", "JavaScript", "CSS"];
+export function copySorted(arR: string[]): string[]{
+  return arR.slice().sort();
+}
+let sortedArr = copySorted(arR);
+console.log(sortedArr);
+console.log(arR);
+
+// SORT USERS BY AGE
+//Write the function sortByAge(users) that gets an array of objects with the age property and sorts them by age.
+let john1 = { name: "John", age: 25 };
+let pete1 = { name: "Pete", age: 30 };
+let mary1 = { name: "Mary", age: 28 };
+let arr2 = [ pete1, john1, mary1 ];
+
+//making the function
+export function sortByAge(arr2: { name:string, age: number}[] ):{ name:string, age: number}[]{
+ return arr2.sort((a,b) => a.age -b.age);
+}
+console.log("expected [john1, mary1, pete1", sortByAge(arr2));
+
+//Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
+// Multiple runs of shuffle may lead to different orders of elements. For instance:
+ let arrNum = [1, 2, 3];
+ export function shuffle(arr: number[]): number[]{
+   return arr.sort(() => Math.random() - 0.5);
+ }
+ console.log(shuffle(arrNum));
+
+ /*
+ Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+The formula for the average is (age1 + age2 + ... + ageN) / N.*/
+let ram = {name: "Ram", age:30}
+let hari = {name: "Hari", age:40}
+let krishna = {name: "Krishna", age:20}
+let nameArr =[ram, hari, krishna];//average 30
+
+//using reduce inside thge function because we need single value back
+export function getAverageAge(newArr: {name: string, age: number} []): number{
+  return newArr.reduce((acc, current) => acc + current.age, 0)/ newArr.length;
+}
+console.log("expected average is 30:", getAverageAge(nameArr));
+
+//create a key object from the array
+/*
+Let’s say we received an array of users in the form {id:..., name:..., age:... }.
+Create a function groupById(arr) that creates an object from it, with id as the key, and array items as values.*/
+
+// let people = [
+//   {id: 'kamal', name: "Kamal Smith", age: 20},
+//   {id: 'rajan', name: "rajan Smith", age: 24},
+//   {id: 'parm', name: "parm Peterson", age: 31},
+// ];
+// function groupById(array:{id:string, name: string, age: number}[]): { [key: string]:{id:string, name: string, age: number}[]}{
+//   return array.reduce((obj, value) => {
+//     obj[value.id] = value;
+//     return obj;
+//   }, {})
+// }

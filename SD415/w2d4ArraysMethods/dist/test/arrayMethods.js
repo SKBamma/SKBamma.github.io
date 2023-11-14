@@ -1,4 +1,4 @@
-// import { assert } from "chai";
+import { assert } from "chai";
 import { doubleNumbers, doubleAge, filterAllEvenNumber, filterAgeGreaterThan10, findEvenNum } from "../src/app.js";
 let numArray = Array();
 let peopleArray = Array();
