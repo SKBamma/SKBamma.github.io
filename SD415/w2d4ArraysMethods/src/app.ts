@@ -175,8 +175,8 @@ export function camelize(str: string): string {
   return str.split('-').map((word, index) => index == 0 ?
     word : word[0].toUpperCase() + word.slice(1)).join('')
 }
-console.log( " expect:backgroundColor",camelize("background-color"));
-console.log( "Expect: liststyleImage",camelize('list-style-image'));
+console.log(" expect:backgroundColor", camelize("background-color"));
+console.log("Expect: liststyleImage", camelize('list-style-image'));
 
 // console.log(camelize("-webkit-transition") == 'WebkitTransition');
 
@@ -184,7 +184,7 @@ console.log( "Expect: liststyleImage",camelize('list-style-image'));
 //We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
 // Create a function copySorted(arr) that returns such a copy.
 let arR = ["HTML", "JavaScript", "CSS"];
-export function copySorted(arR: string[]): string[]{
+export function copySorted(arR: string[]): string[] {
   return arR.slice().sort();
 }
 let sortedArr = copySorted(arR);
@@ -196,33 +196,33 @@ console.log(arR);
 let john1 = { name: "John", age: 25 };
 let pete1 = { name: "Pete", age: 30 };
 let mary1 = { name: "Mary", age: 28 };
-let arr2 = [ pete1, john1, mary1 ];
+let arr2 = [pete1, john1, mary1];
 
 //making the function
-export function sortByAge(arr2: { name:string, age: number}[] ):{ name:string, age: number}[]{
- return arr2.sort((a,b) => a.age -b.age);
+export function sortByAge(arr2: { name: string, age: number }[]): { name: string, age: number }[] {
+  return arr2.sort((a, b) => a.age - b.age);
 }
 console.log("expected [john1, mary1, pete1", sortByAge(arr2));
 
 //Write the function shuffle(array) that shuffles (randomly reorders) elements of the array.
 // Multiple runs of shuffle may lead to different orders of elements. For instance:
- let arrNum = [1, 2, 3];
- export function shuffle(arr: number[]): number[]{
-   return arr.sort(() => Math.random() - 0.5);
- }
- console.log(shuffle(arrNum));
+let arrNum = [1, 2, 3];
+export function shuffle(arr: number[]): number[] {
+  return arr.sort(() => Math.random() - 0.5);
+}
+console.log(shuffle(arrNum));
 
- /*
- Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
+/*
+Write the function getAverageAge(users) that gets an array of objects with property age and returns the average age.
 The formula for the average is (age1 + age2 + ... + ageN) / N.*/
-let ram = {name: "Ram", age:30}
-let hari = {name: "Hari", age:40}
-let krishna = {name: "Krishna", age:20}
-let nameArr =[ram, hari, krishna];//average 30
+let ram = { name: "Ram", age: 30 }
+let hari = { name: "Hari", age: 40 }
+let krishna = { name: "Krishna", age: 20 }
+let nameArr = [ram, hari, krishna];//average 30
 
 //using reduce inside thge function because we need single value back
-export function getAverageAge(newArr: {name: string, age: number} []): number{
-  return newArr.reduce((acc, current) => acc + current.age, 0)/ newArr.length;
+export function getAverageAge(newArr: { name: string, age: number }[]): number {
+  return newArr.reduce((acc, current) => acc + current.age, 0) / newArr.length;
 }
 console.log("expected average is 30:", getAverageAge(nameArr));
 
@@ -242,3 +242,64 @@ Create a function groupById(arr) that creates an object from it, with id as the 
 //     return obj;
 //   }, {})
 // }
+
+
+const numArray1 = [5, 0, 7, 77, -20, 300, 51, 2]
+/*
+add Mocha tests to the file for the reduce functions.
+reduce
+- find sum of numbers
+- find average of numbers
+- find max of numbers
+
+*/
+//finding the sum of the arry
+export function calSum(arr: number[]): number {
+  return arr.reduce((sum, current) => sum + current, 0);
+}
+console.log("Expect sum:422 ", calSum(numArray1));
+
+//finding the average of number
+function averageOfNumber(arr: number[]): number {
+  return arr.reduce((sum, current) => sum + current, 0) / arr.length;
+}
+console.log("Expect:52.75", averageOfNumber(numArray1));
+
+//finding the max in the array
+function findMax(arr: number[]): number {
+  return arr.reduce((max, current): number => Math.max(max, current), -Infinity);
+}
+console.log("Expect: 300", findMax(numArray1));
+
+const peopleArray1 = [
+  { name: "Sam", age: 15 },
+  { name: "William", age: 6 },
+  { name: "Lucy", age: 13 },
+  { name: "Barney", age: 80 }]
+
+//find the max of age
+function findMaxAge(peopleArr: { name: string, age: number }[]): number {
+  return peopleArr.reduce((maxAge, person) => Math.max(maxAge, person.age), peopleArr[0].age);// initial value for the max age
+}
+console.log(findMaxAge(peopleArray1));
+
+/*- write function, sumEvens(arr), that uses a chain of map filter reduce to find the sum of ages of people
+with even number ages*/
+function sumEvens(arr: { name:string, age: number } []): number{
+  return arr
+  .map(person => person.age)// get age only in arr
+  .filter(age => age % 2 ===0)// filter even number
+  .reduce((sum, evenAge) => sum + evenAge, 0); // get summ of all even number
+}
+console.log("expect 86:", sumEvens(peopleArray1));
+ /*
+- write function, sumOddAges(arr) that uses a chain of map filter reduce to find the sum of ages of
+people with odd number ages
+*/
+function sumOddAges(arr:{ name: string, age: number } []):number{
+  return arr
+  .map(person => person.age)// put the age only
+  .filter(age => age % 2 != 0)// filter odd number
+  .reduce((sum, oddAge) => sum + oddAge, 0);
+}
+console.log("Expect :28",sumOddAges(peopleArray1));
