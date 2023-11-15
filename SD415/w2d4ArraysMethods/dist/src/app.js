@@ -200,3 +200,58 @@ Create a function groupById(arr) that creates an object from it, with id as the 
 //     return obj;
 //   }, {})
 // }
+const numArray1 = [5, 0, 7, 77, -20, 300, 51, 2];
+/*
+add Mocha tests to the file for the reduce functions.
+reduce
+- find sum of numbers
+- find average of numbers
+- find max of numbers
+
+*/
+//finding the sum of the arry
+export function calSum(arr) {
+    return arr.reduce((sum, current) => sum + current, 0);
+}
+console.log("Expect sum:422 ", calSum(numArray1));
+//finding the average of number
+function averageOfNumber(arr) {
+    return arr.reduce((sum, current) => sum + current, 0) / arr.length;
+}
+console.log("Expect:52.75", averageOfNumber(numArray1));
+//finding the max in the array
+function findMax(arr) {
+    return arr.reduce((max, current) => Math.max(max, current), -Infinity);
+}
+console.log("Expect: 300", findMax(numArray1));
+const peopleArray1 = [
+    { name: "Sam", age: 15 },
+    { name: "William", age: 6 },
+    { name: "Lucy", age: 13 },
+    { name: "Barney", age: 80 }
+];
+//find the max of age
+function findMaxAge(peopleArr) {
+    return peopleArr.reduce((maxAge, person) => Math.max(maxAge, person.age), peopleArr[0].age); // initial value for the max age
+}
+console.log(findMaxAge(peopleArray1));
+/*- write function, sumEvens(arr), that uses a chain of map filter reduce to find the sum of ages of people
+with even number ages*/
+function sumEvens(arr) {
+    return arr
+        .map(person => person.age) // get age only in arr
+        .filter(age => age % 2 === 0) // filter even number
+        .reduce((sum, evenAge) => sum + evenAge, 0); // get summ of all even number
+}
+console.log("expect 86:", sumEvens(peopleArray1));
+/*
+- write function, sumOddAges(arr) that uses a chain of map filter reduce to find the sum of ages of
+people with odd number ages
+*/
+function sumOddAges(arr) {
+    return arr
+        .map(person => person.age) // put the age only
+        .filter(age => age % 2 != 0) // filter odd number
+        .reduce((sum, oddAge) => sum + oddAge, 0);
+}
+console.log("Expect :28", sumOddAges(peopleArray1));
