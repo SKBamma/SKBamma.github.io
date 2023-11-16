@@ -110,7 +110,7 @@ export function calculateTotalDuration(dailyRecord: Day[]): number {
 // d. use concat  method to print all the session
 export function getAllSession(dailyRecord: Day[]): Session[] {
     let result: Session[] = [];
-    for (const day of dailyRecord) { 
+    for (const day of dailyRecord) {
         result = result.concat(day.sessions);
     }
     return result;
@@ -138,78 +138,185 @@ console.log(getAllDurations(dailyRecord));
 const array123 = [1, 2, 3]
 
 //use map and an arrow function to get a new array with the squares of each element -- i.e., [1, 4, 9]
-function multiply(arr:number[]): number[]{
-    return arr.map(numb => numb* numb);
+function multiply(arr: number[]): number[] {
+    return arr.map(numb => numb * numb);
 
 }
 console.log(multiply(array123));
 
 
 //Use reduce to get the sum of the elements of arr123.
-function sum(arr:number[]): number{
-    return arr.reduce((sum, current) => sum + current , 0);
+function sum(arr: number[]): number {
+    return arr.reduce((sum, current) => sum + current, 0);
 }
 console.log(sum(array123));
 
 
 
-type Player ={
+type Player = {
     name: string;
     points: number[];
-  };
-  
+};
+
 //   function maxPoints(players: Player[]): number {
 //     let maxPoints = -Infinity;
-  
+
 //     for (const player of players) {
 //       const totalPoints = player.points.reduce((acc, curr) => acc + curr, 0);
 //       maxPoints = Math.max(maxPoints, totalPoints);
 //     }
-  
+
 //     return maxPoints;
 //   }
-  
+
 //   const player1 = { name: "Bob", points: [1, 2, 1] };
 //   const player2 = { name: "Andre", points: [2, 0, 1] };
 //   const player3 = { name: "Max", points: [1, 1, 1] };
 //   const players = [player1, player2, player3];
-  
+
 //   console.log("Expect 4:", maxPoints(players));
 
 //   interface Player {
 //     name: string;
 //     points: number[];
 //   }
-  
-  function maxPoints(players: Player[]): number {
+
+function maxPoints(players: Player[]): number {
     if (players.length === 0) {
-      return 0; 
+        return 0;
     }
-  
+
     let maxPoints = players[0].points.reduce((sum, current) => sum + current, 0);
-  
+
     for (let i = 1; i < players.length; i++) {
-      const totalPoints = players[i].points.reduce((sum, current) => sum + current, 0);
-      maxPoints = Math.max(maxPoints, totalPoints);
+        const totalPoints = players[i].points.reduce((sum, current) => sum + current, 0);
+        maxPoints = Math.max(maxPoints, totalPoints);
     }
-  
+
     return maxPoints;
-  }
-  
-  const player1 = { name: "Bob", points: [1, 2, 1] };
-  const player2 = { name: "Andre", points: [2, 0, 1] };
-  const player3 = { name: "Max", points: [1, 1, 1] };
-  const players = [player1, player2, player3];
-  
-  console.log("Expect 4:", maxPoints(players));
-  
-  //Use reduce to find the sum of an array.
+}
+
+const player1 = { name: "Bob", points: [1, 2, 1] };
+const player2 = { name: "Andre", points: [2, 0, 1] };
+const player3 = { name: "Max", points: [1, 1, 1] };
+const players = [player1, player2, player3];
+
+console.log("Expect 4:", maxPoints(players));
+
+//Use reduce to find the sum of an array.
 //Use reduce to find the largest element of an array.
 let array = [2, 4, 5, 8, 10];
-function calsum(array: number[]): number{
+function calsum(array: number[]): number {
     return array.reduce((sum, current) => sum + current, 0);
 }
 
 // function max(array: number[]): number{
 //     retrun arr.reduce(max, current)=> Math.max(max, current, 0)
 // }
+
+type Donation = {
+    funderId: number;
+    amount: number;
+};
+
+type DailyRecord = {
+    donations: Donation[];
+    date: string;
+};
+
+type FlattenedDonation = {
+    date: string;
+    id: number;
+    amount: number;
+};
+
+function flatten(dailyRecord: DailyRecord[]): FlattenedDonation[] {
+    return dailyRecord
+        .map((day) =>
+            day.donations.map((donation) => ({
+                date: day.date,
+                id: donation.funderId,
+                amount: donation.amount,
+            }))
+        )
+        .reduce((flattenedDonations, donations) => flattenedDonations.concat(donations), []);
+}
+
+const donation1: Donation = { funderId: 1, amount: 100 };
+const donation2: Donation = { funderId: 2, amount: 10 };
+const donation3: Donation = { funderId: 3, amount: 1 };
+const donation4: Donation = { funderId: 2, amount: 5 };
+const donation5: Donation = { funderId: 1, amount: 15 };
+
+const day3: DailyRecord = { donations: [donation1, donation2], date: "01/10/2022" };
+const day4: DailyRecord = { donations: [donation3, donation4, donation5], date: "01/11/2022" };
+
+const dailyRecord1: DailyRecord[] = [day3, day4];
+
+const flattenedDonations: FlattenedDonation[] = flatten(dailyRecord1);
+
+console.log(flattenedDonations);
+
+
+function myMap(arr: any[], fun: (value: any, index: number, array: any[]) => any): any[] {
+    const mappedArray: any[] = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        mappedArray.push(fun(arr[i], i, arr));
+    }
+
+    return mappedArray;
+}
+
+// Example usage:
+const originalArray: number[] = [1, 2, 3, 4, 5];
+
+// Define a function to double each element
+const doubleFunction = (value: number) => value * 2;
+
+// Use myMap with the custom function
+const newArray: number[] = myMap(originalArray, doubleFunction);
+
+console.log(newArray); // Output: [2, 4, 6, 8, 10]
+
+
+/*
+Write a function, smash, that uses map and destructuring in parameters of the callback function. Remember that you need () around destructuring brackets for an object if you do not have let or const.  smash input is an array of objects with x and y properties.  It returns an array that has the x and y values added together.
+
+const bar = [{x:1, y:2}, {x:10, y:4}, {x:4, y:2}]
+console.log("expect [3, 14, 6]:", smash(bar));*/
+
+type Integers = {
+    x: number;
+    y: number;
+}
+
+function smash(input: Integers[]): number[] {
+    return input.map(({ x, y }: Integers) => x + y);// get the points and add them together using map
+}
+
+
+const bar: Integers[] = [{ x: 1, y: 2 }, { x: 10, y: 4 }, { x: 4, y: 2 }];
+console.log("Expect [3, 14, 6]:", smash(bar));
+
+//   let [firstName, surname] = "Ilya Kantor".split(' ‘);
+function b() {
+    function a() {
+        console.log(x);
+    }
+    const x = 10;
+    a();
+}
+const x = 20;
+b();
+
+
+function c() {
+    function d() {
+        console.log(x1);
+    }
+    const x1 = 10;
+    d();
+}
+const x1 = 20;
+c();
