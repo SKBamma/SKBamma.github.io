@@ -446,3 +446,20 @@ let lengths: string[] = ["Bilbo", "gandalf", "nazgul"].map((item: string, index:
     `${index}: ${item.length}`);
 
 console.log(lengths);
+
+function logOddSquare(n: number): void {
+    // Base case: Stop recursion when n is less than 1
+    if (n < 1) {
+      return;
+    }
+    // If n is odd, log its square
+    if (n % 2 !== 0) {
+      console.log(n * n);
+    }
+    // Recursively call the function with the next odd number
+    logOddSquare(n - 2);
+  }
+  
+  // Example usage:
+  logOddSquare(9);
+  

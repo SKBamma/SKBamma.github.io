@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            //creating new Element using div tag.
+            let myDIV = document.createElement('div');
+            // assigning the content for the element
+            myDIV.innerHTML = `   <label>Name</label>
+        <input type="text">
+        <br />
+        <br />
+        <label>Skills</label>
+        <select multiple name="Skills">
+            <option value="js">JavaScript</option>
+            <option value="ts" selected>TypeScript </option>
+            <option value="rec">React</option>
+            <option value="react na">React native</option>
+            
+        </select>
+        <br />
+        <br />
+        <label>Status:</label>
+        <input type="checkbox" name="status" value="active">Active
+        <input type="checkbox" name="status" value="inactive">Inactive `;
+        
+        //attatching the element after the body.
+        document.body.append(myDIV);
+        }
+        function getValues(){
+            let nameField = document.querySelector('input');
+            let nameEntered = nameField.value;
+            
+            let skills = document.querySelectorAll('select[name="skills"] option:checked');
+            let skillValue = [];
+            for (let x of skills) {
+                skillValue.push(x.value);
+            }
+            console.log(skillValue);
+        }
+        
+
+    </script>
+</head>
+
+<body>
+    <!-- <div>
+        <label>Name</label>
+        <input type="text">
+        <br />
+        <br />
+        <label>Skills</label>
+        <select multiple name="Skills">
+            <option value="js">JavaScript</option>
+            <option value="ts" selected>TypeScript </option>
+            <option value="rec">React</option>
+            <option value="react na">React native</option>
+
+        </select>
+        <br />
+        <br />
+        <label>Status:</label>
+        <input type="checkbox" name="status" value="active">Active
+        <input type="checkbox" name="status" value="inactive">Inactive
+
+    </div> -->
+
+
+
+</body>
+
+</html>

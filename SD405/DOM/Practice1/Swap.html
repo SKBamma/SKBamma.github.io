@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap</title>
+
+    <script>
+        function swap(){
+        let nameText=document.getElementById("name");
+        let aliasText= document.getElementById("alias");
+        // console.log(nameText, aliasText);
+        let nameValue= nameText.value;
+        nameText.value= aliasText.value;
+        aliasText.value= nameValue;
+        }
+
+    </script>
+</head>
+
+<body>
+    Name:<input type="text" id="name">
+    <br />
+    <br />
+    Alias: <input type="text" id="alias">
+    <br />
+    <br />
+    <button onclick="swap();">Swap</button>
+    <br />
+</body>
+
+</html>

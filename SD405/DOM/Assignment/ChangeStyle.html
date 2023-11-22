@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            background-color: black;
+            color: white;
+        }
+        .light{
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+    <script>
+        function Background(){
+           let fruit = document.querySelector('select[name="theme"] option:checked');
+           let myP = document.querySelector('p');
+           if(fruit.value=='dark'){
+            myP.classList.add('dark');
+            myP.classList.remove('light');
+           }else{
+            myP.classList.add('light');
+            myP.classList.remove('dark');
+           }
+        //    myP.classList.remove(fruit.value=='dark'?'light':"dark");
+        //     myP.classList.add(fruit.value=='dark'?'dark':"light");
+        //     console.log(myP.getArribute('class'));
+
+            // document.querySelector('p').classList.remove('dark');
+            // document.querySelector('p').classList.add('light');
+
+
+
+
+        }
+    </script>
+   
+</head>
+<body>
+    <select name="theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <br/>
+    <br/>
+    <p>Bananas are yellow in color</p>
+    <br/>
+    <button onclick="Background();">Submit</button>
+    
+    
+</body>
+</html>
