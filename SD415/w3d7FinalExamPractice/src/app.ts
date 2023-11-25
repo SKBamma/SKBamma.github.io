@@ -457,7 +457,7 @@ function logOddSquare(n: number): void {
       console.log(n * n);
     }
     // Recursively call the function with the next odd number
-    logOddSquare(n - 2);
+    logOddSquare(n - 1);
   }
   
   // Example usage:
