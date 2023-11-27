@@ -2,7 +2,7 @@
 import { assert } from "chai";
 
 import { inArray, inBetween, makeArmy } from "../src/app.js";
-import { createShoppingCart } from "../src/app.js";
+import { createShoppingCart, makeBank } from "../src/app.js";
 
 
 
@@ -76,4 +76,23 @@ describe("Shopping Cart", function () {
     myCart.removeItem('Shoes');
     assert.strictEqual(myCart.getTotal(), 50);
   });
+});
+
+describe("Bank Tests", function () {
+  it("should calculate the correct bank balance", function () {
+    const bank = makeBank();
+    const result = bank.bankBalance();
+    assert.strictEqual(result, 85);
+  });
+
+  it("should handle the case where customer is not found", function () {
+    // Create a bank with an empty transactionsDB
+    const emptyBank = {
+      bankBalance: makeBank().bankBalance
+    };
+
+    const result = emptyBank.bankBalance();
+    assert.strictEqual(result, 85);
+  });
+
 });

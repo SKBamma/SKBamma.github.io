@@ -141,3 +141,52 @@ function printNumbers1(from: number, to: number): void {
 }
 //console
 printNumbers1(3, 5);
+
+// let x = 1;
+
+// function func() {
+
+//   console.log("expect 2", x); // ReferenceError: Cannot access 'x' before initialization
+//   let x = 2;
+// }
+
+// func();
+
+let array = [1, 2, 3, 4, 5, 6, 7]
+function inBetween(arr: number[], n1: number, n2: number): number[] {
+    const newRnage = [];
+    for (const num of arr) {
+        if (num >= n1 && num <= n2) {
+            newRnage.push(num)
+        }
+    }
+    return newRnage;
+}
+console.log("expect 3, 4, 5, 6", inBetween(array, 3, 6));
+
+function inBetweens(a: number, b: number) {
+    return function (x: number) {
+        return x >= a && x <= b;
+    };
+}
+console.log(`expect 3, 4, 5, 6 ${array.filter(inBetweens(3, 6))} `);
+
+function inArray(arr1: number[], arr2: number[]): number[] {
+    const matchedArray = [];
+    for (const num of arr2) {
+        if (arr1.includes(num)) {
+            matchedArray.push(num)
+        }
+    }
+    return matchedArray;
+}
+console.log(inArray(array, [2, 7, 12]));
+
+//USING CLOSURES
+function findElements( arr: number[]) {
+    return function(x: number ): boolean {
+        return arr.includes(x)
+    };
+}
+let array3 = [1, 2, 12]
+console.log("expect 1, 2", array.filter(findElements(array3)));

@@ -260,3 +260,55 @@ export function createShoppingCart() {
         getTotal
     };
 }
+
+//bank balance
+type Transaction = {
+    customerId: number;
+    customerTransactions: number[];
+  };
+  
+  type Bank = {
+    bankBalance: () => number;
+  };
+  
+   function makeBank(): Bank {
+    const transactionsDB: Transaction[] = [
+      { customerId: 1, customerTransactions: [10, 50, -40] },
+      { customerId: 2, customerTransactions: [10, 10, -10] },
+      { customerId: 3, customerTransactions: [5, -5, 55] }
+    ];
+  
+    function getBalance(custId: number): number {
+      const customer = transactionsDB.find(customer => customer.customerId === custId);
+      if (!customer) {
+        return 0; // or handle the case where customer is not found
+      }
+  
+      let balance = 0;
+      for (const trans of customer.customerTransactions) {
+        balance += trans;
+      }
+  
+      return balance;
+    }
+  
+    function bankBalance(): number {
+      let totalBalance = 0;
+      for (const customer of transactionsDB) {
+        totalBalance += getBalance(customer.customerId);
+      }
+      return totalBalance;
+    }
+  
+    // Return the bank object with the public method
+    return {
+      bankBalance
+    };
+  }
+  
+  // Example usage:
+  const bank = makeBank();
+  console.log(bank.bankBalance()); // Should output 85
+  
+  export { makeBank }; // Export for testing purposes
+  
